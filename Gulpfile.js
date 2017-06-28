@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 
-const input = './main.scss';
-const output = '.';
+const input = './scss/main.scss';
+const output = './css';
 
 const sassOptions = {
   errLogToConsole: true,
