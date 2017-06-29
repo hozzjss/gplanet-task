@@ -1,0 +1,151 @@
+* {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: Changa, sans-serif;
+}
+
+div.wrapper .header-nav, div.wrapper .header-nav .navbar-nav, div.wrapper .header-nav .navbar-header {
+  background-color: #fff;
+}
+
+div.wrapper .header-nav .navbar-collapse a:hover {
+  background-color: #e7e7e7;
+}
+
+div.wrapper div.header-general {
+  min-height: 90px;
+  background-color: #febe12;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.wrapper div.header-general .logo img {
+  width: 36px;
+}
+
+div.wrapper div.header-general .reviewee img {
+  width: 20px;
+}
+
+div.wrapper div.header-general div > a {
+  display: inline-block;
+}
+
+div.wrapper div.header-general div {
+  display: inline-block;
+}
+
+div.wrapper div.header-general div a {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 4px;
+  color: black;
+}
+
+div.wrapper div.header-general div .logo > a {
+  margin-left: 4px;
+}
+
+div.wrapper div.header-general div div > *, div.wrapper div.header-general div div.right-align > div {
+  margin-right: 4px;
+}
+
+div.wrapper div.header-general .dropdown-menu {
+  min-width: 50px;
+  padding: 2px;
+}
+
+div.wrapper div.header-general .dropdown-menu li > a {
+  padding: 4px;
+}
+
+@media screen and (min-width: 330px) {
+  div.wrapper div.header-general .logo img {
+    width: 60px;
+  }
+  div.wrapper div.header-general .reviewee img {
+    width: 36px;
+  }
+}
+
+div.wrapper .reviewers {
+  background-color: #fff;
+}
+
+div.wrapper .reviewers .header h5 {
+  margin: 0;
+}
+
+div.wrapper .reviewers .header .overall-rating {
+  margin-top: 12px;
+}
+
+div.wrapper .reviewers .header .overall-rating div {
+  display: inline-block;
+}
+
+div.wrapper .reviewers .header .overall-rating div.img img {
+  width: 20px;
+}
+
+div.wrapper .reviewers .header .overall-rating span.highlight-rating {
+  font-size: 14px;
+  color: #febe12;
+}
+
+div.wrapper .reviewers .header .overall-rating span.max-rate {
+  color: #bbb;
+}
+
+div.wrapper .reviewers .header .dropdown-menu {
+  min-width: 50px;
+  padding: 2px;
+}
+
+div.wrapper .reviewers .header .dropdown-menu li > a {
+  padding: 4px;
+}
+
+div.wrapper .reviewers .header a {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 4px;
+  color: black;
+}
+
+div.wrapper img.arrow-down {
+  width: 10px;
+}
+
+div.wrapper main {
+  background-color: #26241e;
+}
+
+@media screen and (min-width: 330px) {
+  * {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  div.wrapper {
+    padding: 0;
+  }
+  div.wrapper .navbar-collapse {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  div.wrapper {
+    padding: 40px 40px 0 40px;
+  }
+}
