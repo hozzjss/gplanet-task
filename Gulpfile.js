@@ -1,9 +1,13 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
 const autoprefixer = require('gulp-autoprefixer');
 
 const input = './scss/**/*.scss';
 const output = './css';
+
+const jsInput = './main.js';
+const jsOutput = './js';
 
 const sassOptions = {
   errLogToConsole: true,
@@ -22,11 +26,22 @@ gulp.task('sass', () => {
     .pipe(gulp.dest(output))
 });
 
-gulp.task('watch', function() {
+gulp.task('js', () => {
+  return gulp
+    .src(jsInput)
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest(jsOutput));
+})
+
+gulp.task('watch', function () {
   return gulp
     // Watch the input folder for change,
     // and run `sass` task when something happens
-    .watch(input, ['sass'])
+    .watch([jsInput, input], ['js', 'sass'])
+    // .watch(input, ['sass'])
+    // .watch(jsInput, ['js'])
     // When there is a change,
     // log a message in the console
     .on('change', (event) => {
@@ -43,4 +58,4 @@ gulp.task('prod', ['watch'], () => {
     .pipe(gulp.dest(output));
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['js', 'sass', 'watch']);

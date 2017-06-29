@@ -1,13 +1,22 @@
+@import '../components/stars';
 @import '../components/mixins';
 @import '../components/colors';
- .reviewers {
+main {
+    padding-top: 20px;
+    margin-top: -20px;
+}
+.reviewers {
+    padding-top: 20px;
     background-color: #fff;
+    .container {
+        padding-right: 0;
+    }
     .header {
         h5 {
             margin: 0;
         }
         .overall-rating {
-            margin-top: 12px;
+            margin: 15px 0;
             div {
                 display: inline-block;
             }
@@ -25,5 +34,50 @@
         @include fitting-dropdown;
         @include default-link;
 
+    }
+    .list-group-item {
+        padding: 1px;
+        h6 {
+            display: inline-block;
+        }
+        .img img {
+            width: 66px;
+        }
+    }
+    .user-list {
+        padding: 0;
+        .user .review-excerpt > *:not(.name) {
+            display: none;
+        }
+    }
+    .chat {
+        padding: 0;
+        .chat-info {
+            display: flex;
+            padding: 2px 0 0 10px;;
+            background-color: #f6f5f2;
+            @include centering-flex(space-between);
+            div.stars {
+                height: 20px;
+            }
+            
+            & > div, div.left-align > div, div.right-align > div {
+                display: inline-block;
+            }
+            div.right-align {
+                max-width: 50px;
+                // flex-grow: 2;
+                img {
+                    max-width: 20px;
+                }
+            }
+            div.user-img {
+                margin-right: 3px;
+                img {
+                    width: 60px;
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 }

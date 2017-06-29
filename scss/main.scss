@@ -4,6 +4,9 @@ $black: #26241e;
     font-weight: 700;
     font-family: Changa, sans-serif;
 }
+* :not(img) {
+    border-radius: 1px !important;
+}
 
 @mixin font-in-res-of($res, $size) {
     @media screen and (min-width: $res) {
