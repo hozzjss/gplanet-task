@@ -54,7 +54,7 @@ main {
         padding: 0;
         .chat-info {
             display: flex;
-            padding: 2px 0 0 10px;;
+            padding: 2px 0 0 10px;
             background-color: #f6f5f2;
             @include centering-flex(space-between);
             div.stars {
@@ -66,7 +66,6 @@ main {
             }
             div.right-align {
                 max-width: 50px;
-                // flex-grow: 2;
                 img {
                     max-width: 20px;
                 }
@@ -76,6 +75,38 @@ main {
                 img {
                     width: 60px;
                     border-radius: 50%;
+                }
+            }
+        }
+        .messages {
+            min-height: 60vh;
+            background-color: #e8e8e8;
+            margin-top: -20px;
+            padding: 36px 48.5px;
+            .message-item {
+                max-width: 100%;
+                border-radius: 12.2px !important;
+                margin-bottom: 10px;
+                .user-thumb {
+                    display: inline;
+                    border-radius: 25%;
+                    padding: 0;
+                    img {
+                        width: 25px;
+                        border-radius: 50%;
+                    }
+                }
+                .content {
+                    padding: 10px;
+                }
+            }
+            .user-message-item {
+                background-color: #d3d3d3;
+            }
+            .brand-message-item {
+                background-color: $gold;
+                img {
+                    float: right;
                 }
             }
         }
