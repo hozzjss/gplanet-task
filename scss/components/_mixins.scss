@@ -1,0 +1,21 @@
+@mixin fitting-dropdown {
+    .dropdown-menu {
+        min-width: 50px;
+        padding: 2px;
+        li > a {
+            padding: 4px;
+        }
+    }
+}
+
+// all links also should be inline blocks
+// none decorated
+// and black
+@mixin default-link {
+    a {
+        display: inline-block;
+        text-decoration: none;
+        margin-right: 4px;
+        color: black;
+    }
+}

@@ -1,7 +1,8 @@
+$black: #26241e;
 * {
     font-size: 10px;
     font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Changa, sans-serif;
 }
 
 @mixin font-in-res-of($res, $size) {
@@ -15,6 +16,13 @@
 
 div.wrapper {
     @import './layout/header';
+    @import './layout/reviewers';
+    img.arrow-down {
+        width: 10px;
+    }
+    main {
+        background-color: $black;
+    }
 }
 @include font-in-res-of(330px, 12px);
 

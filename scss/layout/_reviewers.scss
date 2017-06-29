@@ -1,0 +1,29 @@
+@import '../components/mixins';
+@import '../components/colors';
+ .reviewers {
+    background-color: #fff;
+    .header {
+        h5 {
+            margin: 0;
+        }
+        .overall-rating {
+            margin-top: 12px;
+            div {
+                display: inline-block;
+            }
+            div.img img {
+                width: 20px;
+            }
+            span.highlight-rating {
+                font-size: 14px;
+                color: $gold;
+            }
+            span.max-rate {
+                color: #bbb;
+            }
+        }
+        @include fitting-dropdown;
+        @include default-link;
+
+    }
+}
