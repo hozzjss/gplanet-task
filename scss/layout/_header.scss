@@ -1,0 +1,85 @@
+$header-bg: #febe12;
+
+// jargon: res: resolution or min width
+@mixin image-widths-in-res-of($res, $logo, $brand) {
+    @media screen and (min-width: $res) {
+        div.header-general {
+            .logo img {
+                width: $logo;
+            }
+            .reviewee img {
+                width: $brand;
+            }
+        }
+    }
+}
+
+@mixin centering-flex($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.header-nav {
+    &, .navbar-nav, .navbar-header {
+        background-color: #fff;
+    }
+    .navbar-collapse a:hover {
+        background-color: #e7e7e7;
+    }
+}
+
+div.header-general {
+    .logo img {
+        width: 36px;
+    }
+    .reviewee img {
+        width: 20px;
+    }
+    min-height: 90px;
+    background-color: $header-bg;
+    // general header sections are all vertically aligned to the center
+    // and they're separated by the space between them
+    @include centering-flex($justify: space-between);
+
+    // the links are not decorated and are displayed as inline-blocks
+    // so that margin is applied to them
+    div > a {
+        display: inline-block;
+    }
+
+    // the sections inside of the upper header
+    div {
+        // should be all displayed as inline blocks 
+        // to be controlled by the flex layout
+        display: inline-block;
+        
+        // all links also should be inline blocks
+        // none decorated
+        // and black
+        & > a {
+            display: inline-block;
+            text-decoration: none;
+            margin-right: 4px;
+            color: black;
+        }
+
+        // for the header to be consistent all sides should have a margin of 4px
+        .logo > a {
+            margin-left: 4px;
+        }
+         
+        div > *, div.right-align > div {
+            margin-right: 4px;
+        }
+    }
+    .dropdown-menu {
+        min-width: 50px;
+        padding: 2px;
+        li > a {
+            padding: 4px;
+        }
+    }
+}
+
+@include image-widths-in-res-of(330px, 60px, 36px);
