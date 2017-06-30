@@ -50,7 +50,7 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('prod', ['watch'], () => {
+gulp.task('prod', ['js'], () => {
   return gulp
     .src(input)
     .pipe(sass({ outputStyle: 'compressed' }))

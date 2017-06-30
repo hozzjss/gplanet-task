@@ -15,18 +15,23 @@
     }
 }
 
-@mixin centering-flex($justify) {
-    display: flex;
-    align-items: center;
-    justify-content: $justify;
+header .container-fluid {
+    padding: 0 !important;
+    .header-nav, .header-general{
+
+        padding: 0 7.3% !important;
+    }
 }
 
 .header-nav {
     &, .navbar-nav, .navbar-header {
         background-color: #fff;
     }
-    .navbar-collapse a:hover {
-        background-color: #e7e7e7;
+    .navbar-collapse {
+        padding: 0;
+        a:hover {
+            background-color: #efefef;
+        }
     }
 }
 

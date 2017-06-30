@@ -53,10 +53,43 @@ $(document).ready(function () {
 
     // add five users
     let active = true;
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 4; i += 1) {
         userList.append(generateNewUser())
     }
     $('.star.rating').click(function () {
         $(this).parent().attr('data-stars', $(this).data('rating'));
     });
+    const messagesEl = document.querySelector('.messages');
+    const userListEl = document.querySelector('.user-list .list-group');
+    const resizeLayout = () => {
+        const userListHeight = userListEl.clientHeight;
+        const messagesHeight = messagesEl.clientHeight;
+        const calculatePadding = () => {
+            const listGroupItemEl = document.querySelector('.user-list .list-group .list-group-item');
+            const listGroupItemHeight = listGroupItemEl.clientHeight;
+            return (userListHeight - (listGroupItemHeight * 5)) / 10;
+        }
+        if (window.innerWidth > 479) {
+            setTimeout(() => {
+                if (userListHeight > messagesHeight) {
+                    messagesEl.style.minHeight = (userListHeight) + "px";
+                }
+                else if (userListHeight < messagesHeight) {
+                    userListEl.style.minHeight = (messagesHeight - 22) + "px";
+                    const difference = messagesHeight - userListHeight;
+                    $('.message-excerpt').css('display', 'block');
+                    if (difference > 0) {
+                        const padding = calculatePadding();
+                        console.info('padding: ', padding)
+                        if (padding > 6) {
+                            $('.user-list .list-group .list-group-item').css('padding-top', `${padding}px`);
+                            $('.user-list .list-group .list-group-item').css('padding-bottom', `${padding}px`);
+                        }
+                    }
+                }
+            }, 50)
+        }
+    };
+    window.onresize = resizeLayout;
+    resizeLayout();
 });

@@ -1,41 +1,73 @@
 $black: #26241e;
 body {
     font-size: 10px;
-    font-weight: 700;
     font-family: Changa, sans-serif;
+}
+h5, h6 {
+    font-size: 10px;
+    font-weight: 700;
 }
 * :not(img) {
     border-radius: 1px !important;
 }
 
-main {
-    padding-top: 20px;
-    margin-top: -20px;
-}
-
 @mixin font-in-res-of($res, $size) {
     @media screen and (min-width: $res) {
-        * {
+        body {
             font-size: $size;
             font-weight: 400;
+        }
+        h5, h6 {
+            font-weight: 700;
+        }
+        h5 {
+            font-size: $size + 4;
+
+        }
+        h6 {
+            font-size:  $size + 2;
         }
     }
 }
 
 div.wrapper {
     @import './layout/header';
-    header .container-fluid {
-        padding: 0 !important;
-    }
     @import './layout/reviewers';
     img.arrow-down {
         width: 10px;
     }
     main {
+        padding-top: 20px;
+        margin-top: -20px;
         background-color: $black;
     }
+    footer {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        background-color: #292924;
+        align-items: center;
+        min-height: 60px;
+        div {
+            display: inline-block;
+            &.creator-note {
+                margin-right: 50%;
+            }
+            img {
+                display: inline-block;
+                width: 14px;
+            }
+        }
+        
+        color: #fff;
+        a {
+            color: $gold;
+        }
+    }
 }
-@include font-in-res-of(330px, 12px);
+@include font-in-res-of(330px, 10px);
+@include font-in-res-of(480px, 12px);
+@include font-in-res-of(1200px, 14px);
 
 @media screen and (max-width:330px) {
     div.wrapper {
@@ -47,9 +79,6 @@ div.wrapper {
 }
 
 @media screen and (min-width:768px) {
-    body {
-        font-size: initial;
-    }
     .review-excerpt .message-excerpt {
         display: initial !important;
     }
@@ -58,13 +87,7 @@ div.wrapper {
     div.wrapper {
         padding: 40px;
         main {
-            padding: 25px 80px 0 80px;
+            padding: 25px 80px 72px 80px;
         }
-    }
-}
-
-@media screen and (min-width:1200px) {
-    body {
-        font-size: 16px;
     }
 }
