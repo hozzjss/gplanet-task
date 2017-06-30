@@ -30,7 +30,7 @@ gulp.task('js', () => {
   return gulp
     .src(jsInput)
     .pipe(babel({
-      presets: ['es2015']
+      presets: ['es2015', {compact: true}]
     }))
     .pipe(gulp.dest(jsOutput));
 })
