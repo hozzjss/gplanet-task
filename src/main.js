@@ -90,5 +90,5 @@ $(document).ready(function () {
         }
     };
     window.onresize = resizeLayout;
-    resizeLayout();
+    window.onloadeddata = resizeLayout;
 });

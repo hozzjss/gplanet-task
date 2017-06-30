@@ -1,13 +1,30 @@
+@import '../components/stars';
 @import '../components/mixins';
 @import '../components/colors';
- .reviewers {
-    background-color: #fff;
+@mixin highlight-font($size) {
+    .header .overall-rating span.highlight-rating {
+        font-size: $size;
+    }
+
+} 
+
+@mixin header-layout {
     .header {
         h5 {
             margin: 0;
         }
+        // the container of the summary should separate its contents
+        // by the space between them
+        .review-summary {
+            padding-top:20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        // should be separated by a space from the heading and the dropdown
+        // 4.5/5 the left side should be larger than the right side proportionately
         .overall-rating {
-            margin-top: 12px;
+            margin: 15px 0;
             div {
                 display: inline-block;
             }
@@ -15,7 +32,7 @@
                 width: 20px;
             }
             span.highlight-rating {
-                font-size: 14px;
+                font-size: 20px !important;
                 color: $gold;
             }
             span.max-rate {
@@ -25,5 +42,174 @@
         @include fitting-dropdown;
         @include default-link;
 
+    }
+}
+
+@mixin user-list {
+    .user-list {
+        padding: 0;
+        .list-group {
+            margin-bottom: 0;
+        }
+        .list-group-item {
+            padding: 1px;
+            &.active {
+                background-color: $gold;
+                color: #333;
+                border-color: $gold;
+            }
+            .name h6 {
+                display: inline-block;
+                font-weight: 700;
+            }
+            .img img {
+                width: 66px;
+            }
+        }
+        .user {
+            .still-stars img {
+                width: 10px;
+            }
+            display: flex;
+            h5 {
+                margin: 0;
+                margin-top: 2px;
+            }
+            .img {
+                margin-right: 8px;
+            }
+            .review-excerpt .message-excerpt {
+                display: none;
+            }
+        }
+    }
+}
+
+@mixin chat-info {
+    .chat-info {
+        display: flex;
+        padding: 2px 0 0 10px;
+        background-color: #f6f5f2;
+        @include centering-flex(space-between);
+        div.stars {
+            height: 20px;
+        }
+
+        // to be able to use flex all items must be inline blox
+        & > div, div.left-align > div, div.right-align > div {
+            display: inline-block;
+        }
+
+        // the menu icon on the left 
+        div.right-align {
+            max-width: 50px;
+            img {
+                max-width: 20px;
+            }
+        }
+
+        // a round mid-sized photo for the user
+        div.user-img {
+            margin-right: 3px;
+            img {
+                width: 60px;
+                border-radius: 50%;
+                border: 4px solid #fff;
+            }
+        }
+    }
+}
+
+.reviewers {
+    padding-left: 30px;
+    background-color: #f6f5f2;
+    border-radius: 2px !important;
+    .container-fluid {
+        padding: 0;
+    }
+    @include header-layout;
+    @include user-list;
+    // user iteml
+    
+    .chat {
+        padding: 0;
+        @include chat-info;
+        .messages {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // min-height: 60vh;vh
+            background-color: #e8e8e8;
+            margin-top: -20px;
+            padding: 1% 10%;
+            .message-item {
+                max-width: 100%;
+                border-radius: 10px !important;
+                margin-bottom: 10px;
+                .user-thumb {
+                    display: inline;
+                    border-radius: 25%;
+                    padding: 0;
+                    img {
+                        width: 25px;
+                        border-radius: 50%;
+                    }
+                }
+                .content {
+                    padding: 10px;
+                }
+            }
+            .user-message-item {
+                background-color: #d3d3d3;
+            }
+            .brand-message-item {
+                background-color: $gold;
+                img {
+                    float: right;
+                }
+            }
+            .send-message {
+                .input-group {
+                    width: 100%;
+                    margin-left: -14px;
+                }
+                input.form-control {
+                    height: 70px;
+                    border-bottom: 0;
+                    border-top-right-radius: 10px !important;
+                    border-top-left-radius: 10px !important;
+                    word-break: break-word;
+                    // reset all the effects on focus
+                    &:focus {
+                        border: 1px solid #ccc;
+                        border-bottom: 0;
+                        box-shadow: initial;
+                        z-index: initial;
+                        outline: initial;
+                        outline-offset: 0px;
+                    }
+                }
+                div.send-icon {
+                    height: 25px;
+                    border-bottom-left-radius: 10px !important;
+                    border-bottom-right-radius: 10px !important;
+                    background-color: #fff;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 12px;
+                    padding-bottom: 6px;
+                    border: 1px solid #ccc;
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    @include highlight-font(24px !important);
+    .reviewers .chat .messages {
+        padding: 36px 48.5px;
     }
 }

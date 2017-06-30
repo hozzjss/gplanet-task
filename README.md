@@ -1,13 +1,14 @@
-# GPlanet Task
+# gplanet-task
 
 ## Setup
+be sure to have the latest version of node and npm
 
-Be sure to have the latest lts versions of node and npm installed
+run `npm install` to install all dependencies
 
 ## Build
 
-run `npm run build` to build to dist directory
+run `npm run build` to build the project
 
-## Dev Server
+## Dev server
 
-to run development server run `npm start`
+run `npm start` for development server
