@@ -3,11 +3,11 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const autoprefixer = require('gulp-autoprefixer');
 
-const input = './scss/**/*.scss';
-const output = './css';
+const input = './src/scss/**/*.scss';
+const output = './dist/css';
 
-const jsInput = './main.js';
-const jsOutput = './js';
+const jsInput = './src/main.js';
+const jsOutput = './dist/js';
 
 const sassOptions = {
   errLogToConsole: true,

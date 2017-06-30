@@ -60,7 +60,6 @@ $(document).ready(function () {
                     $('.message-excerpt').css('display', 'block');
                     if (difference > 0) {
                         var padding = calculatePadding();
-                        console.info('padding: ', padding);
                         if (padding > 6) {
                             $('.user-list .list-group .list-group-item').css('padding-top', padding + 'px');
                             $('.user-list .list-group .list-group-item').css('padding-bottom', padding + 'px');

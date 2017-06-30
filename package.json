@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "gulp",
     "build": "gulp prod",
-    "start": "lite-server"
+    "start": "gulp prod && cd ./dist && lite-server"
   },
   "author": "",
   "license": "ISC",
